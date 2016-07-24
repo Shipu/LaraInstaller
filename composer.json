@@ -1,0 +1,12 @@
+{
+    "name": "shipu/installer",
+    "description": "Laravel Web Installer",
+    "license": "Creative Commons",
+    "authors": [
+        {
+            "name": "Shipu Ahamed",
+            "email": "shipuahamed01@gmail.com"
+        }
+    ],
+    "require": {}
+}
