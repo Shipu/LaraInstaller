@@ -50,21 +50,27 @@ class InstallerController extends Controller
 
     public function save(InstallerRequest $input)
     {
-        $input = $input->toArray();
-//        dd($input);
-                    //        $key = 'DB_DATABASE';
-                    //        $value = 'shipu';
-                    //        $configKey = 'database.connections.mysql.database';
-//        Installer::setDriver($input['driver']);
-                    //        file_put_contents(App::environmentFilePath(), str_replace(
-                    //            $key.'='.Config::get($configKey),
-                    //            $key.'='.$value,
-                    //            file_get_contents(App::environmentFilePath())
-                    //        ));
+        $input = $input->except(['_token']);
+                            $key = 'DB_DATABASE';
+                            $value = 'shipu';
+                            $configKey = 'database.connections.mysql.database';
+//        dd( str_replace(
+//            $key.'='.env($key),
+//            'DB_DATABASE=shipu',
+//            file_get_contents(App::environmentFilePath())
+//        ));
+        Installer::setDriver($input['driver']);
+//                            file_put_contents(App::environmentFilePath(), str_replace(
+//                                $key.'='.env($key),
+//                                $key.'='.$value,
+//                                file_get_contents(App::environmentFilePath())
+//                            ));
                     //        dd(Config::get('database.connections.mysql.database'));
-//        foreach ($input as $key => $value) {
-//            Installer::setInEnvironment($key, $value);
-//        }
+        foreach ($input as $key => $value) {
+//            echo $key." ".$value;
+            Installer::setInEnvironment($key, $value);
+        }
+        Installer::setInstallKeyOnEnv();
         session(['_old_input' => $input]);
         return view('Installer::install')->with(['nextView' => 'finish']);
 //        return ['nextView' => 'permission'];

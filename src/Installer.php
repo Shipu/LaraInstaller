@@ -104,9 +104,19 @@ class Installer
 
     protected function setKeyInEnvironmentFileUsingEnv($key, $value)
     {
+//        dd(env($key));
         file_put_contents(App::environmentFilePath(), str_replace(
             $key.'='.env($key),
             $key.'='.$value,
+            file_get_contents(App::environmentFilePath())
+        ));
+    }
+
+    public function setInstallKeyOnEnv()
+    {
+        file_put_contents(App::environmentFilePath(), str_replace(
+            'APP_URL='.env('APP_URL'),
+            "APP_URL=".env('APP_URL')."\nAPP_INSTALL=true\n",
             file_get_contents(App::environmentFilePath())
         ));
     }
