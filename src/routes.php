@@ -9,12 +9,18 @@
 
 Route::group(['namespace' => '\Shipu\Installer\Controllers', 'middleware' => 'web'], function () {
 
-    Route::get('install', 'InstallerController@index');
-    Route::post('install', 'InstallerController@save');
+    Route::group(['middleware' => 'notInstall'], function()
+    {
+        Route::get('install', 'InstallerController@index');
+        Route::post('install', 'InstallerController@save');
+        Route::get('finishinstallation', 'InstallerController@finishInstallProcess');
 
-    Route::get('test', function () {
-        if(substr(sprintf('%o', fileperms(base_path('storage/logs/'))), -4) >= 775)
-            dd("ok");
-        dd("not ok");
+        Route::get('test', function () {
+            if(substr(sprintf('%o', fileperms(base_path('storage/logs/'))), -4) >= 775)
+                dd("ok");
+            dd("not ok");
+        });
     });
+
+
 });

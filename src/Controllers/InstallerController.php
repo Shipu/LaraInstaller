@@ -70,9 +70,14 @@ class InstallerController extends Controller
 //            echo $key." ".$value;
             Installer::setInEnvironment($key, $value);
         }
-        Installer::setInstallKeyOnEnv();
         session(['_old_input' => $input]);
         return view('Installer::install')->with(['nextView' => 'finish']);
 //        return ['nextView' => 'permission'];
+    }
+
+    public function finishInstallProcess()
+    {
+        Installer::setInstallKeyOnEnv();
+        return redirect('/');
     }
 }

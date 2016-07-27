@@ -8,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 </head>
 <body>
-        <form id="msform" method="post" action="{{ url('install') }}">
-            {{ csrf_field() }}
+        <div id="msform">
             <!-- progressbar -->
             <ul id="progressbar">
                 <li :class="className.welcome">Welcome</li>
@@ -19,7 +18,7 @@
                 <li :class="className.finish">Finished</li>
             </ul>
             <component :is="msg"></component>
-        </form>
+        </div>
     @include('Installer::components.Welcome')
     @include('Installer::components.Extension')
     @include('Installer::components.Database')
@@ -31,7 +30,7 @@
     <script src="https://cdn.jsdelivr.net/vue/1.0.26/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
     {{--<script src="https://cdn.jsdelivr.net/vue.validator/2.1.4/vue-validator.min.js"></script>--}}
-    {{--<script src="https://cdn.jsdelivr.net/vue.router/0.7.10/vue-router.min.js"></script>--}}
+    <script src="https://cdn.jsdelivr.net/vue.router/0.7.10/vue-router.min.js"></script>
     {{--<script src="https://raw.githubusercontent.com/laracasts/laravel-workflow-for-swapping-vue-components/master/public/js/main.js"></script>--}}
     <script>
     //    import Vue from 'vue';
@@ -77,7 +76,11 @@
             template: '#finish',
             methods: {
                 nextorprevious: function (msg) {
-                    window.location.href = "{{ url('/') }}";
+                    if(msg == 'finish') {
+                        window.location.href = "{{ url('/finishinstallation') }}";
+                    } else {
+                        this.$parent.setmsg(msg);
+                    }
                 }
             }
         });

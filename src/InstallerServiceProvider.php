@@ -38,6 +38,7 @@ class InstallerServiceProvider extends ServiceProvider
         }
 
         $this->app['router']->middleware('installer', '\Shipu\Installer\Middleware\InstallerMiddleware');
+        $this->app['router']->middleware('notInstall', '\Shipu\Installer\Middleware\NotInstallMiddleware');
 //        dd($this->app->request->all());
     }
 

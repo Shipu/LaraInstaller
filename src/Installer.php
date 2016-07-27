@@ -116,7 +116,7 @@ class Installer
     {
         file_put_contents(App::environmentFilePath(), str_replace(
             'APP_URL='.env('APP_URL'),
-            "APP_URL=".env('APP_URL')."\nAPP_INSTALL=true\n",
+            "APP_URL=".env('APP_URL')."\nAPP_INSTALL=true",
             file_get_contents(App::environmentFilePath())
         ));
     }
