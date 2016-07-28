@@ -28,9 +28,9 @@
     {{--{!! Form::close() !!}--}}
     {{--<script src="https://cdn.jsdelivr.net/requirejs/2.1.22/require.js"></script>--}}
     <script src="https://cdn.jsdelivr.net/vue/1.0.26/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
+    {{--<script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>--}}
     {{--<script src="https://cdn.jsdelivr.net/vue.validator/2.1.4/vue-validator.min.js"></script>--}}
-    <script src="https://cdn.jsdelivr.net/vue.router/0.7.10/vue-router.min.js"></script>
+    {{--<script src="https://cdn.jsdelivr.net/vue.router/0.7.10/vue-router.min.js"></script>--}}
     {{--<script src="https://raw.githubusercontent.com/laracasts/laravel-workflow-for-swapping-vue-components/master/public/js/main.js"></script>--}}
     <script>
     //    import Vue from 'vue';
