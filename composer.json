@@ -1,6 +1,9 @@
 {
     "name": "shipu/installer",
     "description": "Laravel Web Installer",
+    "keywords": ["installer", "web", "config", "php", "laravel"],
+    "homepage": "https://github.com/shipu/larainstaller",
+    "type": "library",
     "license": "Creative Commons",
     "authors": [
         {
@@ -8,5 +11,12 @@
             "email": "shipuahamed01@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Shipu\\Installer\\": "src/"
+        }
+    },
+    "require": {
+      "php": ">=5.4.0"
+    }
 }
