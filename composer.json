@@ -8,7 +8,8 @@
     "authors": [
         {
             "name": "Shipu Ahamed",
-            "email": "shipuahamed01@gmail.com"
+            "email": "shipuahamed01@gmail.com",
+            "homepage": "http://shipuahamed.com"
         }
     ],
     "autoload": {
@@ -19,6 +20,12 @@
     "require": {
       "php": ">=5.4.0"
     },
+    "scripts": {
+      "post-install-cmd": [
+        "Shipu\\Installer\\LaraInstallerComposerScripts::addProvider",
+        "php artisan optimize"
+      ]
+    },
     "minimum-stability": "dev",
-	"prefer-stable": true
+    "prefer-stable": true
 }
