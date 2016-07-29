@@ -39,6 +39,10 @@ class InstallerServiceProvider extends ServiceProvider
 
         $this->app['router']->middleware('installer', '\Shipu\Installer\Middleware\InstallerMiddleware');
         $this->app['router']->middleware('notInstall', '\Shipu\Installer\Middleware\NotInstallMiddleware');
+
+        $this->publishes([
+            __DIR__.'./assets' => public_path('installer'),
+        ], 'public');
 //        dd($this->app->request->all());
     }
 
