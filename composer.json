@@ -23,7 +23,14 @@
     "scripts": {
       "post-install-cmd": [
         "Shipu\\Installer\\LaraInstallerComposerScripts::addProvider",
-        "php artisan optimize"
+        "php artisan vendor:publish --tag=public"
+      ],
+      "post-create-project-cmd": [
+        "php artisan key:generate"
+      ],
+      "post-update-cmd": [
+        "Shipu\\Installer\\LaraInstallerComposerScripts::addProvider",
+        "php artisan vendor:publish --tag=public"
       ]
     },
     "minimum-stability": "dev",
